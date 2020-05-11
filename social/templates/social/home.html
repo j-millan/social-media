@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static widget_tweaks form_tags %}
+
+{% block title %}Home - Facebucks{% endblock title %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="{% static "css/home.css" %}">
+{% endblock stylesheet %}
+
+{% block content %}
+	<div class="row justify-content-around">
+		<div class="col-2 m-0 mt-2" id="side">
+			{% if user.profile.has_friends %}
+				<p class="mb-1">Friends ({{ user.profile.get_friends|length }})</p>
+				<ul class="list-group list-group-flush friends-list">
+					{% for friend in user.profile.get_friends %}
+						<li class="list-group-item py-2 my-1 row px-2">
+							<div class="col-3 p-0 mb-0 d-inline">
+								<img src="{{ friend.profile_picture.url }}" alt="{{ friend.get_short_name}}" style="height:45px; width:45px;">
+							</div>
+							<div class="col-7 p-1 d-inline">
+								<a href="{% url 'social:user_profile' friend.user.pk %}" title="{{ friend.get_full_name }}" style="color: hsl(0, 0%, 15%)">
+									{{ friend.get_short_name }}
+								</a>
+								<!--<a href="#" title="{{ friend.get_full_name }}" 
+									{% if friend.online %}
+										style="color: hsl(0, 0%, 15%)"
+									{% else %}
+										style="color: hsl(0, 0%, 55%)"
+									{% endif %}>								
+								{{ friend.get_short_name }}</a>-->
+							</div>
+						</li>	
+					{% endfor %}
+				</ul>
+			{% else %}
+
+			{% endif %}
+		</div>
+		<div class="col-6 main-c px-0 py-2" id="feed">
+			<div class="mid-container mb-3" id="post-form">
+				<form method="post" enctype="multipart/form-data" novalidate>
+					{% csrf_token %}
+					{% if form.non_field_errors %}
+						<div class="alert alert-danger" role="danger">
+							{% for error in form.non_field_errors %}
+								<p {% if forloop.last %}class="mb-0"{% endif %}>
+									{{ error }}
+								</p>
+							{% endfor %}
+						</div>
+					{% endif %}
+					{% render_field form.message class=form.message|input_class %}
+					{% render_field form.cover %}
+					<button class="btn btn-dark btn-block" type="submit">POST</button>
+				</form>
+			</div>
+			{% for post in posts %}
+				<div class="mid-container post px-0 pb-0 pt-3 mb-3" onclick="location.href='{% url 'social:post_details' post.pk %}';">
+					{% include "social/includes/post.html" with comment_slice=":2" %}
+				</div>
+			{% endfor %}	
+		</div>
+		<div class="col-2 main-c m-0" id="side">
+			
+		</div>
+	</div>
+{% endblock content %}

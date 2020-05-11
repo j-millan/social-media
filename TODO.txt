@@ -1,0 +1,4 @@
+-- Add Tests
+-- Add post comments section
+-- Fix friends-only posts
+-- Change Post foreignkey model from User to Profile

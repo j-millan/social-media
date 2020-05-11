@@ -1,0 +1,32 @@
+{% load static %}
+
+{% if user.profile.has_friend_requests is False %}
+    <div class="dropdown-item m-0 text-muted">
+        No friend requests.
+    </div>
+{% else %}  
+    {% for request in user.profile.get_friend_requests|slice:":3" %}
+        <div class="dropdown-item pb-2 pt-2">
+            <div class="row mb-1" >
+                <div class="col-3 p-0 mb-0">
+                    <img src="{{ request.sender.profile_picture.url }}" alt="">
+                </div>
+                <div class="col-9 pr-0 pl-1" id="f-name">
+                	<a href="#" title="{{ request.sender.get_full_name }}" >{{ request.sender.get_short_name }}</a>
+                	<small title="{{ request.sender.country.name }}" class="d-block text-muted">{{ request.sender.country.name }}</small>
+                </div>
+            </div>
+            <div class="row justify-content-between">
+                <a href="#" class="btn btn-sm btn-primary col-6" id="my-btn">ACCEPT</a>
+                <a href="#" class="btn btn-sm btn-danger col-6" id="my-btn">DECLINE</a>
+            </div>
+        </div>
+        {% if forloop.last %}
+    			<div class="dropdown-item" style="background:hsl(0, 0%, 95%);">
+    				<small><a href="#" class="text-muted">See all the requests (
+    					{{ user.profile.friend_requests.all|length}}
+    				)</a></small>
+    			</div>
+        {% endif %}
+    {% endfor %}
+{% endif %}

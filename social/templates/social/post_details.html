@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static widget_tweaks form_tags %}
+
+{% block title %}{{ post.created_by.get_full_name }}'s Post{% endblock title %}
+
+{% block stylesheet %}
+	<link rel="stylesheet" href="{% static "css/home.css" %}">
+{% endblock stylesheet %}
+
+{% block content %}
+	<div class="row justify-content-center">
+		<div class="col-7 main-c py-2" id="feed">
+			<div class="mid-container post px-0 pb-0 pt-3 mb-3">
+				{% include "social/includes/post.html" with comment_slice=post.comments.all.count %}	
+			</div>
+			<div class="mid-container p-1 mb-3" id="comment-form">
+				<form method="post" novalidate>
+					{% csrf_token %}
+					{% render_field form.message class=form.message|input_class %}
+					<button class="btn-sm btn-dark btn-block" type="submit">Add a comment</button>
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock content %}

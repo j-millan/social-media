@@ -1,0 +1,13 @@
+.pic-container {
+    position:relative;
+}
+
+.profile-picture {
+    position:absolute; 
+    top:0px; 
+    left:0px;
+}
+
+.profile-picture img {
+    border-radius: 50%;
+}

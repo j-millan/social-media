@@ -1,0 +1,51 @@
+{% extends "accounts/base.html" %}
+{% load static widget_tweaks form_tags %}
+
+{% block title %}Sign up - Facebucks{% endblock title %}
+
+{% block content %}
+	<div class="card">
+		<div class="card-body">
+			<h3 class="card-title text-center" style="
+	color: hsl(0, 0%, 20%);">Sign Up</h3>
+			<form method="post" novalidate>
+				{% csrf_token %}
+				<div class="row justify-content-around">
+					<div class="col-6" style="padding-right: 5px;">
+						{{ form.first_name.label_tag }}
+						{% render_field form.first_name class=form.first_name|input_class %}
+						{% include "includes/field_errors.html" with field=form.first_name %}
+					</div>
+					<div class="col-6" style="padding-left: 5px;">
+						{{ form.last_name.label_tag }}
+						{% render_field form.last_name class=form.last_name|input_class %}
+						{% include "includes/field_errors.html" with field=form.last_name %}
+					</div>
+				</div>
+				
+				{{ form.username.label_tag }}
+				{% render_field form.username class=form.username|input_class %}
+				{% include "includes/field_errors.html" with field=form.username %}
+
+				{{ form.email.label_tag }}
+				{% render_field form.email class=form.email|input_class %}
+				{% include "includes/field_errors.html" with field=form.email %}
+				
+				{{ form.password1.label_tag }}
+				{% render_field form.password1 class=form.password1|input_class %}
+				{% include "includes/field_errors.html" with field=form.password1 %}
+
+				{{ form.password2.label_tag }}
+				{% render_field form.password2 class=form.password2|input_class %}
+				{% include "includes/field_errors.html" with field=form.password2 %}
+				<button class="btn btn-primary btn-block" type="submit">Sign Up</button>	
+			</form>
+		</div>
+		<div class="card-footer p-2">
+			<small class="d-block text-center text-muted mb-0">
+				Already have an account? Login 
+				<a href="{% url "accs:login" %}">here.</a>
+			</small>
+		</div>
+	</div>
+{% endblock content %}

@@ -1,0 +1,117 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: hsl(0, 0%, 89%)
+}
+
+.navbar {
+	background: hsl(0, 0%, 20%) !important;
+	z-index: 1;
+}
+
+.navbar-brand {
+	font-family: 'Nunito', sans-serif;
+	font-size: 150% !important;
+	padding: 0px;
+}
+
+.nav-item{
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.nav-item .nav-link {
+	color: hsl(0, 0%, 85%) !important;
+}
+
+.nav-item .dropdown-menu  {
+	border-radius: 0px;
+	max-width: 200px;
+	box-shadow: 0px 0px 1px 0.5px hsla(0, 0%, 15%, 0.4);
+}
+
+.nav-item .dropdown-menu .dropdown-item:hover {
+	background: hsl(0, 0%, 93%);
+}
+
+.navbar-nav .form-row .form-control {
+	border-radius: 0;
+	outline: none;
+	border: none;
+
+	margin-right: 0px;
+}
+
+.navbar-nav .form-row .form-control:focus {
+	box-shadow: 0px 0px 2px black;
+}
+
+.navbar-nav .form-row button {
+	background: hsl(0, 0%, 27%);
+	border: none;
+}
+
+.navbar-nav .form-row button:hover {
+	background: hsl(0, 0%, 25%);
+}	
+
+.navbar-nav .form-row button:active, .navbar-nav .form-row button:focus {
+	box-shadow: inset 0px 0px 0px black !important;
+	background: hsl(0, 0%, 23%) !important;
+}
+
+.navbar-nav .form-row div {
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 0px; 
+}
+
+#fr-menu .btn {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+#fr-menu .btn-primary {
+	background: hsl(210, 60%, 50%);
+	outline: none;
+	border: none;
+}
+
+#fr-menu .btn:hover, #fr-menu .btn:focus {
+	box-shadow: 0px 0px 0px black !important;
+}
+
+#fr-menu .btn-primary:hover {
+	background: hsl(210, 60%, 40%);
+}
+
+#fr-menu img {
+	height:40px; 
+	width:40px;
+}
+
+#f-name small {
+	overflow-wrap: break-word;
+  	word-wrap: break-word;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#f-name p {
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#f-name a {
+	color: hsl(0, 0%, 30%);
+}
+
+#my-btn {
+	border-radius: 0px;
+	margin: 0px;
+}

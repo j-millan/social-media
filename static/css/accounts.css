@@ -1,0 +1,87 @@
+body, html {
+	padding: 0px;
+	margin: 0px;
+	height: 100%;
+	overflow-x: hidden;
+}
+
+body {
+	background: hsl(0, 0%, 15%);
+	background-image: url(../img/media-wallpaper.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+h1 {
+	font-size: 300%;
+	color: white;
+	font-weight: bold;
+	font-family: 'Nunito', sans-serif;
+}
+
+label {
+	margin-bottom: 3px;
+}
+
+div.card {
+	padding-top: 5px;
+
+	border-radius: 3px;
+	border: none;
+	background: hsla(0, 0%, 100%, 0.8);
+}
+
+.card-title {
+	font-weight: 600;
+}
+
+.card-footer {
+	background: hsla(0, 0%, 55%, 0.2) !important;
+}
+
+.form-control {
+	color: hsl(0, 0%, 30%);
+	border-radius: 8px;
+	border: 1px solid hsl(0, 0%, 35%);
+	margin-bottom: 10px;
+}
+
+.form-control:focus {
+	color: hsl(0, 0%, 25%);
+	border: none;
+	box-shadow: 0px 0px 3px 2px hsla(0, 0%, 10%, 0.3);
+}
+
+.btn {
+	margin-top: 20px;
+
+	border-radius: 8px;
+	outline: none;
+	border: none;
+	background: hsl(0, 0%, 20%);
+}
+
+.btn:hover {
+	background: hsl(0, 0%, 20%);
+	box-shadow: inset 0px 0px 15px 2px hsla(0, 0%, 3%, 0.4)
+}
+
+.btn:active, .btn:focus {
+	box-shadow: inset 0px 0px 1px black;
+	background: hsl(0, 0%, 10%) !important;
+} 
+
+#overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	z-index: -1;
+
+	background: hsla(0, 0%, 20%, 0);
+	box-shadow: inset 0px 0px 60px 25px hsla(0, 0%, 3%, 0.6);
+}

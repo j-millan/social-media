@@ -1,0 +1,60 @@
+{% load humanize %}
+
+<div class="row justify-content-around mx-1">
+	<div class="col-8 row justify-content-start">
+		<div class="col-2 px-1 pb-1">
+			<div class="image-container w-100">
+				<img src="{{ post.created_by.profile_picture.url }}" alt="{{ post.created_by.get_short_name}}">
+			</div>
+		</div>
+		<div class="col-10 pl-1 pt-2" id="f-name">
+			<a href="#"  class="text-left" title="{{ post.created_by.user.username }}" >{{ post.created_by.get_full_name }}</a>
+		</div>
+	</div>
+	<div class="col-4 pr-2 text-right">
+		<small title="{{ post.created_at }}" class="text-muted text-left">{{ post.created_at|naturaltime }}</small>
+	</div>
+</div>
+<div class="row m-0">
+	<div class="col-12">
+		<p class="text-left my-1">
+			{{ post.message }}
+		</p>
+	</div>
+	{% if post.cover %}
+		<div class="col-12 p-0">
+			<img src="{{ post.cover.url }}" alt="cover" class="w-100 mb-0">
+		</div>
+	{% endif %}
+</div>
+
+<hr class="mb-1 mt-0">
+<small class="d-block text-center text-muted">
+	{% if post.has_comments %}
+		{{ post.comments.all.count }} comments
+	{% else %}
+		No one has commented yet.
+	{% endif %}
+</small>
+<hr class="my-1">
+
+{% for comment in post.comments.all|slice:comment_slice  %}
+	<div class="container comments pb-1 mt-1">
+		<div class="row pt-2 px-3">
+			<div class="col-1 p-0">
+				<div class="image-container w-100">
+					<img src="{{ comment.created_by.profile_picture.url }}" alt="{{ comment.created_by.get_short_name}}" class="w-100 comment-profile-pic">
+				</div>
+			</div>
+			<div class="col-11" id="f-name">
+				<div class="row">
+					<a class="col-8 pl-2 text-left" href="#" title="{{ comment.created_by.user.username }}">{{ comment.created_by.get_full_name }}</a>
+					<div class="col-4 text-right">
+						<small title="{{ comment.created_at }}" class="text-muted text-left">{{ comment.created_at|naturaltime }}</small>
+					</div>
+				</div>
+				<p class="row pl-2 text-left">{{ comment.message }}</p>
+			</div>
+		</div>
+	</div>
+{% endfor %}
