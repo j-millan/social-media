@@ -8,8 +8,8 @@
 {% endblock stylesheet %}
 
 {% block content %}
-	<div class="pl-4 row justify-content-start">
-		<div class="col-2 m-0 mt-2" id="side">
+	<div class="mt-2 pl-4 row justify-content-start">
+		<div class="col-2 m-0" id="side">
 			{% if user.profile.has_friends %}
 				<p class="mb-1">Friends ({{ user.profile.get_friends|length }})</p>
 				<ul class="list-group list-group-flush friends-list">
@@ -37,8 +37,8 @@
 				<p class="text-muted text-center mt-3">You don't have any friends.</p>
 			{% endif %}
 		</div>
-		<div class="col-6 main-c mx-4 px-0 py-2" id="feed">
-			<div class="mid-container mb-3" id="post-form">
+		<div class="col-6 mx-4 px-0" id="feed">
+			<div class="default-container mb-3" id="post-form">
 				<form method="post" enctype="multipart/form-data" novalidate>
 					{% csrf_token %}
 					{% if form.non_field_errors %}
@@ -56,12 +56,12 @@
 				</form>
 			</div>
 			{% for post in posts %}
-				<div class="mid-container post px-0 pb-0 pt-3 mb-3" onclick="location.href='{% url 'social:post_details' post.pk %}';">
+				<div class="default-container post px-0 pb-0 pt-3 mb-3" onclick="location.href='{% url 'social:post_details' post.pk %}';">
 					{% include "social/includes/post.html" with comment_slice=":2" %}
 				</div>
 			{% endfor %}	
 		</div>
-		<div class="col-2 main-c m-0" id="side">
+		<div class="col-2 main-c" id="side">
 			
 		</div>
 	</div>

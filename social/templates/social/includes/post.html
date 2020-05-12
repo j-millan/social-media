@@ -8,7 +8,7 @@
 			</div>
 		</div>
 		<div class="col-10 pl-1 pt-2" id="f-name">
-			<a href="#"  class="text-left" title="{{ post.created_by.user.username }}" >{{ post.created_by.get_full_name }}</a>
+			<a href="{% url 'social:user_profile' post.created_by.user.pk %}"  class="text-left" title="{{ post.created_by.user.username }}" >{{ post.created_by.get_full_name }}</a>
 		</div>
 	</div>
 	<div class="col-4 pr-2 text-right">
@@ -48,7 +48,7 @@
 			</div>
 			<div class="col-11" id="f-name">
 				<div class="row">
-					<a class="col-8 pl-2 text-left" href="#" title="{{ comment.created_by.user.username }}">{{ comment.created_by.get_full_name }}</a>
+					<a class="col-8 pl-2 text-left" href="{% url 'social:user_profile' comment.created_by.user.pk %}" title="{{ comment.created_by.user.username }}">{{ comment.created_by.get_full_name }}</a>
 					<div class="col-4 text-right">
 						<small title="{{ comment.created_at }}" class="text-muted text-left">{{ comment.created_at|naturaltime }}</small>
 					</div>

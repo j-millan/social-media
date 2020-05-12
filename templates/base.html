@@ -37,7 +37,7 @@
 								</form>
 							</li>
 							<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-							<li class="nav-item"><a href="#" class="nav-link">{{ user.first_name}}</a></li>
+							<li class="nav-item"><a href="{% url 'social:user_profile' user.pk %}" class="nav-link">{{ user.first_name}}</a></li>
 							<li class="nav-item dropdown">
 								<a class="nav-link" href="#" id="friendRequestsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Friend Requests</a>
 								<div class="dropdown-menu p-0" id="fr-menu" arial-labelledby="friendRequestsDropdown">
