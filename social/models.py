@@ -29,7 +29,7 @@ class Profile(models.Model):
 		return query
 
 	def has_friend_requests(self):
-		return True if len(self.friend_requests) > 0 else False
+		return True if len(self.friend_requests.all()) > 0 else False
 
 	def has_friends(self):
 		return True if len(Friendship.objects.filter(Q(creator=self) | Q(friend=self))) > 0 else False
