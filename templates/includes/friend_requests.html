@@ -1,10 +1,6 @@
 {% load static %}
 
-{% if user.profile.has_friend_requests is False %}
-    <div class="dropdown-item m-0 text-muted">
-        No friend requests.
-    </div>
-{% else %}  
+{% if user.profile.has_friend_requests %}
     {% for request in user.profile.get_friend_requests|slice:":3" %}
         <div class="dropdown-item pb-2 pt-2">
             <div class="row mb-1" >
@@ -29,4 +25,8 @@
     			</div>
         {% endif %}
     {% endfor %}
+{% else %}  
+    <div class="dropdown-item m-0 p-2 text-muted">
+        No friend requests.
+    </div>
 {% endif %}
