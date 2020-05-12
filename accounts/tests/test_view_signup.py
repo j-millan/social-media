@@ -24,6 +24,10 @@ class SignUpViewTests(TestCase):
 		form = self.response.context.get('form')
 		self.assertIsInstance(form, UserForm)
 
+	def test_login_link(self):
+		login_url = reverse('accs:login')
+		self.assertContains(self.response, 'href="{0}"'.format(login_url))
+
 	def test_form_inputs(self):
 		self.assertContains(self.response, '<input', 7)
 		self.assertContains(self.response, 'type="text"', 3)
