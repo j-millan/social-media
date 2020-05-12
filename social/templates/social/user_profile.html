@@ -9,20 +9,15 @@
 {% endblock stylesheet %}
 
 {% block content %}
-	<div class="row justify-content-center">
-		<div class="col-6 main-c" id="feed">
-			<div class="mid-container mb-3 p-0">
-				<div class="pic-container">
-					<div class="row">
-						<div class="col-12">
-							<img class="w-100" src="{{ profile.header_picture.url }}" alt="{{ profile.user.first_name }}'s header picture.">
-						</div>
-						<div class="col-4 profile-picture">
-							<img class="w-100" src="{{ profile.profile_picture.url }}" alt="{{ profile.user.first_name }}'s profile picture.">
-						</div>
-					</div>
-				</div>
+	<div class="row justify-content-center mt-3 ml-3">
+		<div class="col-2">
+			<div class="pimage-container default-container">
+				<img class="profile-picture" src="{{ profile.profile_picture.url }}" alt="{{ user.username }}'s profile picture">
 			</div>
+		</div>
+		<div class="col-6 px-4 user-info default-container">
+			<div class="row">{{ profile.get_full_name }}</div>
+			<div class="row"></div>
 		</div>
 	</div>
 {% endblock content %}
