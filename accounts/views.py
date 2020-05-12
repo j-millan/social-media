@@ -11,6 +11,8 @@ def sign_up(request):
 		form = UserForm(request.POST)
 		if form.is_valid():
 			user = form.save()
+			profile = Profile.objects.create(user=user)
+
 			auth_login(request, user)
 			return redirect('social:home')
 	else:
