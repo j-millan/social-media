@@ -11,11 +11,11 @@
 {% block content %}
 	<div class="row justify-content-center mt-3 ml-3">
 		<div class="col-2">
-			<div class="pimage-container default-container">
+			<div class="default-container image-container img-container-size box-shadow">
 				<img class="profile-picture" src="{{ profile.profile_picture.url }}" alt="{{ user.username }}'s profile picture">
 			</div>
 		</div>
-		<div class="col-6 px-4 user-info default-container">
+		<div class="col-6 px-4 user-info default-container box-shadow">
 			<div class="row">{{ profile.get_full_name }}</div>
 			<div class="row"></div>
 		</div>

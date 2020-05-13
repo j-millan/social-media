@@ -9,11 +9,11 @@
 
 {% block content %}
 	<div class="row justify-content-center">
-		<div class="col-6 main-c py-2" id="feed">
-			<div class="default-container post px-0 pb-0 pt-3 mb-3">
+		<div class="col-6 main-c box-shadow py-2" id="feed">
+			<div class="default-container box-shadow post px-0 pb-0 pt-3 mb-3">
 				{% include "social/includes/post.html" with comment_slice=post.comments.all.count %}	
 			</div>
-			<div class="default-container p-1 mb-3" id="comment-form">
+			<div class="default-container box-shadow p-1 mb-3" id="comment-form">
 				<form method="post" novalidate>
 					{% csrf_token %}
 					{% render_field form.message class=form.message|input_class %}

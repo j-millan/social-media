@@ -1,28 +1,3 @@
-img.profile-picture {
-	border-radius: 0%;
-}
-
-.pimage-container {
-    position: relative;
-    width: 75%; 
-}
-
-
-.pimage-container:after {
-    content: "";
-    display: block;
-    padding-bottom: 100%;
-}
-
-.pimage-container img {
-    position: absolute;
-    bottom: 0;
-    right: 0; 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover;
-    object-position: center;
-
-    background: hsl(210, 50%, 93%);
-    box-shadow: 0px 0px 3px 0.5px gray; 
+.img-container-size {
+	width: 75%; 
 }

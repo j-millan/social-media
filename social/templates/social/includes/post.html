@@ -3,8 +3,8 @@
 <div class="row justify-content-around mx-1">
 	<div class="col-8 row justify-content-start">
 		<div class="col-2 px-1 pb-1">
-			<div class="image-container w-100">
-				<img src="{{ post.created_by.profile_picture.url }}" alt="{{ post.created_by.get_short_name}}">
+			<div class="image-container img-container-size w-100">
+				<img class="border-50 box-shadow" src="{{ post.created_by.profile_picture.url }}" alt="{{ post.created_by.get_short_name}}">
 			</div>
 		</div>
 		<div class="col-10 pl-1 pt-2" id="f-name">
@@ -42,8 +42,8 @@
 	<div class="container comments pb-1 mt-1">
 		<div class="row pt-2 px-3">
 			<div class="col-1 p-0">
-				<div class="image-container w-100">
-					<img src="{{ comment.created_by.profile_picture.url }}" alt="{{ comment.created_by.get_short_name}}" class="w-100 comment-profile-pic">
+				<div class="image-container img-container-size w-100">
+					<img src="{{ comment.created_by.profile_picture.url }}" alt="{{ comment.created_by.get_short_name}}" class="profile-pic border-50 box-shadow ">
 				</div>
 			</div>
 			<div class="col-11" id="f-name">
